@@ -1,0 +1,47 @@
+{
+  "name": "dsh-note-wall",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A sticky-note wall for DeepSeek Harness: capture an idea from the sidebar, keep it on a pastel wall, and let the agent read or add notes.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check client.js",
+    "test": "node test/host.test.mjs && node test/host-failure.test.mjs && node test/host-geometry.test.mjs && node test/client.test.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "plugin",
+    "notes",
+    "inspiration",
+    "sidebar"
+  ],
+  "license": "MIT"
+}

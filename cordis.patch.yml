@@ -1,0 +1,17 @@
+# dsh-note-wall 组合包层（bundle layer）
+#
+# 安装进 profile 后由 dsh plugin add 应用。宿主行按包名解析（Node module
+# resolution）；客户端半由 package.json 的 dsh.client（platform: web）+
+# exports["./client"] 声明，无需在此重复声明。
+#
+# 层级提示：后应用的层按行胜出，patch 会整行替换 config —— 如需覆盖默认值，
+# 请重述所有键。
+
+- insert:
+    - id: note-wall
+      name: dsh-note-wall
+      config:
+        # 便签存储文件。留空 = <DSH_HOME>/note-wall/notes.json。
+        storagePath: ''
+        # 便签总数上限（1-5000）。
+        maxNotes: 500
